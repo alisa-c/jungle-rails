@@ -33,7 +33,7 @@
       <% @product.reviews.reverse.each do |review| %>
           <dd style="font-weight: bold">Rating: <%= review.rating.to_i%></dd>
           <dd><%= review.description %></dd><br>
-          <% if current_user == review.user %>
+          <% if review.user %>
             <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
           <% end %>
           <% end %>

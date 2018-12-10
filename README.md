@@ -2,6 +2,11 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Final Product
+!["This is the Jungle home page!"](docs/homepage.png)
+!["This is products add and delete page where the admin"](docs/admin-add-products.png)
+!["Where users can see product information and ratings from those who have an account"](docs/product-page-review.png)
+!["This is the cart page, where users can see what they have added to cart before checkout"](docs/cart.png)
 
 ## Setup
 

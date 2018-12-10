@@ -132,12 +132,16 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+
+# REVIEWS
+
 puts "Re-creating Reviews ..."
 
 prod1 = Product.find_by id: 12
 prod2 = Product.find_by id: 9
 prod3 = Product.find_by id: 7
 prod4 = Product.find_by id: 4
+
 
 Review.destroy_all
 
