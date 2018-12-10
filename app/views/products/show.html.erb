@@ -26,6 +26,27 @@
       </div>
     </div>
 
+
+    <div class="row">
+      <div class="col-sm-8">
+      <h2>Reviews</h2>
+      <% @product.reviews.reverse.each do |review| %>
+          <dd style="font-weight: bold">Rating: <%= review.rating.to_i%></dd>
+          <dd><%= review.description %></dd><br>
+          <% if current_user == review.user %>
+            <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+          <% end %>
+          <% end %>
+
+      <% if current_user %>
+        <%= form_for([@product, @review]) do |f| %>
+          Rating: <%= f.select :rating, options_for_select([1, 2, 3, 4, 5]), :prompt => "Select One", :class => 'genForm_dropBox' %>
+          Review: <%= f.text_area :description %>
+          <%= f.submit "Post" %>
+        <% end %>
+        </div>
+    </div>
+    <% end %>
   </article>
 
 </section>
