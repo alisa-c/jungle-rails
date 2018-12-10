@@ -5,30 +5,30 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
     before(:each) do
       @category = Category.new(:name => "something")
-      @product = Product.new(name: "some_name", price_cents: 987.65, quantity: 1, category: @category)
     end
 
       it "is valid with valid attributes" do
+        @product = Product.new(name: "some_name", price: 5, quantity: 1, category: @category)
         expect(@product).to be_valid
       end
 
       it "is not valid without a name" do
-        @product.name = nil
+        @product = Product.new(name: nil, price: 5, quantity: 1, category: @category)
         expect(@product).to_not be_valid
       end
 
       it "is not valid without a price" do
-        @product.price_cents = nil
+        @product = Product.new(name: "some_name", price: nil, quantity: 1, category: @category)
         expect(@product).to_not be_valid
       end
 
       it "is not valid without a quantity" do
-        @product.quantity = nil
+        @product = Product.new(name: "some_name", price_cents: 5, quantity: nil, category: @category)
         expect(@product).to_not be_valid
       end
 
       it "is not valid without a category" do
-        @product.category = nil
+        @product = Product.new(name: "some_name", price_cents: 5, quantity: 1, category: nil)
         expect(@product).to_not be_valid
       end
   end
